@@ -19,10 +19,17 @@ const spaceGrotesk = Space_Grotesk({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://grams2cups.io"),
+
   title: "Grams To Cups Converter",
+
   description: "Ingredient-specific grams to cups conversion calculator",
+
   icons: {
     icon: "/favicon.svg",
+  },
+
+  verification: {
+    google: "aImkOSF8o23o4AB0rQQO5KwuPKrwLg_pin-RhwmVEDM",
   },
 };
 
