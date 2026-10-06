@@ -1,12 +1,13 @@
 import Link from "next/link";
 import { Space_Grotesk } from "next/font/google";
 
-// Wordmark font — swap for any display font you prefer (Sora, Manrope, Bricolage Grotesque…)
+// Wordmark font
 const brandFont = Space_Grotesk({
   subsets: ["latin"],
   weight: ["600", "700"],
   display: "swap",
 });
+
 const ACCENT = "#02b875";
 
 const navLinks = [
@@ -54,6 +55,7 @@ function FooterColumn({
   return (
     <div className="min-w-0">
       <h2 className={headingClass}>{title}</h2>
+
       <ul className="mt-4 space-y-2.5 text-sm text-gray-600">
         {links.map((link) => (
           <li key={link.href}>
@@ -71,7 +73,8 @@ export default function Footer() {
   return (
     <footer className="mt-auto border-t border-[#dcebe3] bg-[#f1f7f3]">
       <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
-        <div className="grid gap-x-8 gap-y-10 sm:grid-cols-3 lg:grid-cols-[1.5fr_1fr_1fr_1fr_1fr_1fr] lg:gap-x-8">
+        {/* Main Footer Grid */}
+        <div className="grid gap-x-8 gap-y-10 sm:grid-cols-3 lg:grid-cols-[1.5fr_1fr_1fr_1fr_1fr] lg:gap-x-8">
           {/* Brand */}
           <div className="sm:col-span-3 lg:col-span-1">
             <Link
@@ -87,41 +90,66 @@ export default function Footer() {
                 height={60}
                 className="h-13 w-13 shrink-0 rounded-xl object-contain"
               />
+
               <span
-                className={`${brandFont.className} text-2xl font-semibold leading-none tracking-[-0.035em] transition-colors text-[#02b875]`}
+                className={`${brandFont.className} text-2xl font-semibold leading-none tracking-[-0.035em] text-[#02b875] transition-colors`}
               >
                 Grams To Cups
               </span>
             </Link>
 
             <p className="mt-4 max-w-md text-sm leading-relaxed text-gray-600 lg:max-w-xs">
-              Ingredient-specific gram to cup conversions for baking and everyday cooking, with practical
-              reference charts when precision matters.
+              Ingredient-specific gram to cup conversions for baking and
+              everyday cooking, with practical reference charts when
+              precision matters.
             </p>
 
-            {/* divider only on tablet, where the brand sits on its own row */}
+            {/* Divider only on tablet */}
             <div className="mt-8 hidden h-px w-full bg-[#dcebe3] sm:block lg:hidden" />
           </div>
 
+          {/* Navigation */}
           <FooterColumn title="Navigation" links={navLinks} />
+
+          {/* Explore */}
           <FooterColumn title="Explore" links={resourceLinks} />
+
+          {/* Converter */}
           <FooterColumn title="Converter" links={converterLinks} />
+
+          {/* Legal */}
           <FooterColumn title="Legal" links={legalLinks} />
         </div>
 
-        {/* A useful standard — full-width note */}
+        {/* A Useful Standard */}
         <div className="footer-standard mt-10 rounded-2xl border border-[#dcebe3] bg-white/60 px-5 py-4">
           <h2 className={headingClass}>A useful standard</h2>
+
           <p className="mt-2 max-w-3xl text-sm leading-relaxed text-gray-600">
-            Grams measure weight; cups measure volume. The correct conversion depends on the ingredient,
-            its preparation, and the measuring method.
+            Grams measure weight; cups measure volume. The correct conversion
+            depends on the ingredient, its preparation, and the measuring
+            method.
           </p>
         </div>
 
-        {/* Bottom bar */}
+        {/* Bottom Bar */}
         <div className="mt-8 flex flex-col gap-3 border-t border-[#dcebe3] pt-5 text-xs leading-relaxed text-gray-500 sm:flex-row sm:items-center sm:justify-between sm:gap-4">
-          <p>© {new Date().getFullYear()} <Link href="/" className="hover:underline" style={{ color: ACCENT }}>Grams2Cups.Io</Link> Built for better kitchen conversions.</p>
-          <p className="sm:text-right">Measurements are practical estimates. Use a scale when precision matters.</p>
+          <p>
+            © {new Date().getFullYear()}{" "}
+            <Link
+              href="/"
+              className="hover:underline"
+              style={{ color: ACCENT }}
+            >
+              Grams2Cups.Io
+            </Link>{" "}
+            Built for better kitchen conversions.
+          </p>
+
+          <p className="sm:text-right">
+            Measurements are practical estimates. Use a scale when precision
+            matters.
+          </p>
         </div>
       </div>
     </footer>
