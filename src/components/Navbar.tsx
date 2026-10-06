@@ -68,7 +68,7 @@ export default function Navbar() {
             aria-label="Grams To Cups home"
           >
             <img
-              src="/grams-to-cups-logo.svg"
+              src="/Grams-to-cups-logo.svg"
               alt=""
               aria-hidden="true"
               width={58}
