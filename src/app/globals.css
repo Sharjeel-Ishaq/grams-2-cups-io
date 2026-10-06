@@ -1,26 +1,341 @@
 @import "tailwindcss";
+@import "remixicon/fonts/remixicon.css";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #f5f1ea;
+  --foreground: #1f1b17;
+  --panel: rgba(255, 255, 255, 0.7);
+  --panel-strong: #ffffff;
+  --line: rgba(31, 27, 23, 0.08);
+  --muted: #6b625d;
+  --accent: #b86d39;
+  --accent-soft: #f0d9c8;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+
+  --font-sans: var(--font-instrument-sans);
+  --font-mono: var(--font-instrument-sans);
+  --font-display: var(--font-space-grotesk);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
+  margin: 0;
+  background:
+    radial-gradient(
+      circle at top left,
+      rgba(184, 109, 57, 0.14),
+      transparent 30%
+    ),
+    linear-gradient(
+      180deg,
+      #f9f5f1 0%,
+      #f1e9df 100%
+    );
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family:
+    var(--font-instrument-sans),
+    Arial,
+    Helvetica,
+    sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.font-display {
+  @apply font-display;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+html.dark body {
+  background:
+    radial-gradient(circle at top left, rgba(2, 184, 117, 0.12), transparent 30%),
+    linear-gradient(180deg, #111916 0%, #18241f 100%);
+  color: #ecf5f0;
+}
+
+html.dark .text-zinc-600 {
+  color: #b9c9c1 !important;
+}
+
+html.dark .text-zinc-500 {
+  color: #8ea39a !important;
+}
+
+html.dark .text-black {
+  color: #edf7f2 !important;
+}
+
+html.dark .bg-white,
+html.dark .bg-white\/80 {
+  background-color: #1c2924 !important;
+}
+
+html.dark .bg-gray-50,
+html.dark .bg-gray-50\/60 {
+  background-color: #22322c !important;
+}
+
+html.dark .bg-\[\#f7f7f7\] {
+  background-color: #15201c !important;
+}
+
+html.dark .bg-\[\#f7f7f9\],
+html.dark .bg-\[\#fbfbfd\] {
+  background-color: #15201c !important;
+}
+
+html.dark .bg-\[\#f1f7f3\] {
+  background-color: #172720 !important;
+}
+
+html.dark .text-gray-900,
+html.dark .text-gray-800,
+html.dark .text-gray-700 {
+  color: #edf7f2 !important;
+}
+
+html.dark .text-gray-600,
+html.dark .text-gray-500 {
+  color: #b9c9c1 !important;
+}
+
+html.dark .text-gray-400 {
+  color: #8ea39a !important;
+}
+
+html.dark .border-gray-200,
+html.dark .border-gray-200\/70,
+html.dark .border-gray-100 {
+  border-color: #33443d !important;
+}
+
+html.dark .border-\[\#e4efe9\] {
+  border-color: #33443d !important;
+}
+
+html.dark header {
+  border-color: #33443d !important;
+  background-color: rgba(20, 31, 27, 0.95) !important;
+}
+
+html.dark footer {
+  border-color: #33443d !important;
+  background-color: #172720 !important;
+}
+
+html.dark .footer-standard {
+  border-color: #385248 !important;
+  background-color: #20332b !important;
+}
+
+html.dark .butter-page {
+  background-color: #15201c !important;
+}
+
+html.dark .butter-page .border-\[\#e4efe9\] {
+  border-color: #33443d !important;
+}
+
+html.dark .converter-ingredient-info {
+  background-color: #20332b !important;
+  border-color: #385248 !important;
+}
+
+html.dark input,
+html.dark select,
+html.dark textarea {
+  border-color: #40534a !important;
+  background-color: #1c2924 !important;
+  color: #edf7f2 !important;
+}
+
+html.dark input::placeholder,
+html.dark textarea::placeholder {
+  color: #8ea39a;
+}
+
+html.dark .hover\:bg-gray-50:hover,
+html.dark .hover\:bg-white:hover {
+  background-color: #2a3c34 !important;
+}
+
+html.dark .cookie-recipe-page {
+  background-color: #15201c !important;
+}
+
+html.dark .cookie-recipe-page section.bg-white,
+html.dark .cookie-recipe-page figure.bg-white {
+  background-color: #1c2924 !important;
+  border-color: #33443d !important;
+}
+
+html.dark .cookie-recipe-page section[style*="background-color"] {
+  background-color: #20332b !important;
+  border-color: #385248 !important;
+}
+
+html.dark .kitchen-assistant-header {
+  background-color: #02b875 !important;
+  color: #ffffff !important;
+}
+
+html.dark .kitchen-assistant-messages {
+  background-color: #121b17 !important;
+}
+
+html.dark .kitchen-assistant-bubble,
+html.dark .kitchen-assistant-suggestion {
+  border-color: #33443d !important;
+  background-color: #1c2924 !important;
+  color: #edf7f2 !important;
+}
+
+html.dark .kitchen-assistant-suggestion:hover {
+  background-color: #20332b !important;
+}
+
+html.dark .kitchen-assistant-form,
+html.dark .kitchen-assistant-disclaimer {
+  border-color: #33443d !important;
+  background-color: #17211e !important;
+}
+
+html.dark .kitchen-assistant-disclaimer {
+  color: #a8b9b1 !important;
+}
+
+html.dark .kitchen-assistant-input {
+  border-color: #40534a !important;
+  background-color: #1c2924 !important;
+  color: #edf7f2 !important;
+}
+
+html.dark .kitchen-assistant-input::placeholder {
+  color: #a8b9b1 !important;
+}
+
+html.dark .oat-types-section {
+  background-color: #1c2924 !important;
+}
+
+html.dark .oat-types-table-wrap {
+  background-color: #17211e !important;
+  border-color: #40534a !important;
+}
+
+html.dark .oat-types-table thead {
+  background-color: #263832 !important;
+  color: #edf7f2 !important;
+}
+
+html.dark .oat-types-table tbody tr:nth-child(odd) {
+  background-color: #1c2924 !important;
+}
+
+html.dark .oat-types-table tbody tr:nth-child(even) {
+  background-color: #22322c !important;
+}
+
+html.dark .oat-types-table tbody tr {
+  border-color: #40534a !important;
+}
+
+html.dark .oat-types-table tbody td {
+  color: #c7d5ce !important;
+}
+
+html.dark .oat-types-table tbody td:first-child {
+  color: #edf7f2 !important;
+}
+
+html.dark .oat-types-table tbody td a {
+  color: #02b875 !important;
+}
+
+html.dark .caramel-drizzle-section {
+  border-color: #40534a !important;
+  background-color: #1c2924 !important;
+}
+
+html.dark .caramel-drizzle-heading {
+  color: #edf7f2 !important;
+}
+
+html.dark .caramel-drizzle-copy {
+  color: #c7d5ce !important;
+}
+
+html.dark .caramel-drizzle-table-wrap {
+  border-color: #40534a !important;
+  background-color: #17211e !important;
+}
+
+html.dark .caramel-drizzle-table thead {
+  background-color: #263832 !important;
+  color: #edf7f2 !important;
+}
+
+html.dark .caramel-drizzle-table tbody tr {
+  border-color: #40534a !important;
+}
+
+html.dark .caramel-drizzle-table tbody tr:nth-child(odd) {
+  background-color: #1c2924 !important;
+}
+
+html.dark .caramel-drizzle-table tbody tr:nth-child(even) {
+  background-color: #22322c !important;
+}
+
+html.dark .caramel-drizzle-table tbody td {
+  color: #c7d5ce !important;
+}
+
+html.dark .caramel-drizzle-table tbody td:first-child {
+  color: #edf7f2 !important;
+}
+
+html.dark .not-found-page {
+  background-color: #15201c !important;
+}
+
+html.dark .not-found-heading {
+  color: #edf7f2 !important;
+}
+
+html.dark .not-found-description,
+html.dark .not-found-footnote {
+  color: #b9c9c1 !important;
+}
+
+html.dark .not-found-secondary-action {
+  border-color: #40534a !important;
+  background-color: #1c2924 !important;
+  color: #edf7f2 !important;
+}
+
+html.dark .not-found-footnote-link {
+  color: #b9c9c1 !important;
+  text-decoration-color: #71847a !important;
 }

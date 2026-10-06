@@ -16,6 +16,20 @@ bun dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
+## Kitchen Assistant (Gemini)
+
+The floating kitchen assistant uses the Gemini API from a server-side route. Set
+the API key in `.env.local` (do not use a `NEXT_PUBLIC_` prefix):
+
+```env
+GEMINI_API_KEY=your_gemini_api_key
+# Optional; defaults to gemini-flash-lite-latest
+GEMINI_MODEL=gemini-flash-lite-latest
+```
+
+Restart the development server after changing environment variables. The API key
+is read only by `src/app/api/assistant/route.ts` and is not sent to the browser.
+
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
