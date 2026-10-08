@@ -34,10 +34,20 @@ export const metadata: Metadata = {
 const breadcrumbSchema = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
-  itemListElement: [
-    { "@type": "ListItem", position: 1, name: "Home", item: "/" },
-    { "@type": "ListItem", position: 2, name: "Butter Grams to Cups", item: PAGE_PATH },
-  ],
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://grams2cups.io/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Butter Grams to Cups",
+      "item": "https://grams2cups.io/butter"
+    }
+  ]
 };
 
 const faqSchema = {

@@ -36,8 +36,18 @@ const breadcrumbSchema = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   itemListElement: [
-    { "@type": "ListItem", position: 1, name: "Home", item: "/" },
-    { "@type": "ListItem", position: 2, name: "Flour Grams to Cups", item: PAGE_URL },
+    {
+      "@type": "ListItem",
+      position: 1,
+      name: "Home",
+      item: "https://grams2cups.io/",
+    },
+    {
+      "@type": "ListItem",
+      position: 2,
+      name: "Flour Grams to Cups",
+      item: "https://grams2cups.io/flour",
+    },
   ],
 };
 
@@ -173,8 +183,8 @@ function SimpleTable({
               {row.map((cell, j) => (
                 <td
                   key={j}
-                  className={`px-4 py-2.5 ${j === 0 ? "font-medium text-gray-800" : "text-gray-600"}`} 
-                  >
+                  className={`px-4 py-2.5 ${j === 0 ? "font-medium text-gray-800" : "text-gray-600"}`}
+                >
                   {cell}
                 </td>
               ))}
@@ -400,4 +410,3 @@ export default function FlourPage() {
     </div>
   );
 }
-    

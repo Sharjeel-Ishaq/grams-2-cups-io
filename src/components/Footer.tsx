@@ -18,7 +18,7 @@ const navLinks = [
 ];
 
 const resourceLinks = [
-  { label: "Ingredient weights", href: "/ingredients" },
+  { label: "Ingredients", href: "/ingredients" },
   { label: "100 grams to cups", href: "/100-grams-to-cups" },
   { label: "Accuracy guide", href: "/grams-to-cups-accuracy" },
   { label: "Conversion chart", href: "/conversion-chart" },
@@ -26,7 +26,7 @@ const resourceLinks = [
 
 const converterLinks = [
   { label: "Grams To Cups", href: "/" },
-  { label: "Grams to cups guide", href: "/grams-to-cups" },
+  // { label: "Grams to cups guide", href: "/grams-to-cups" },
   { label: "Cups To Grams", href: "/cups-to-grams" },
   { label: "Grams To Ounces", href: "/grams-to-ounces" },
   { label: "Ml To Cups", href: "/ml-to-cups" },
