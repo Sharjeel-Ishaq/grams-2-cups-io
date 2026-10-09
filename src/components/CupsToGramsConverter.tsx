@@ -54,8 +54,11 @@ export default function CupsToGramsConverter({ ingredients }: Props) {
   return (
     <div
       id="cups-to-grams"
-      className="w-full rounded-[24px] border bg-white p-5 sm:p-6"
-      style={{ borderColor: `${ACCENT}20` }}
+      className="w-full rounded-[24px] m-4 border border-t-4 bg-white p-5 sm:p-6"
+      style={{
+        borderColor: `${ACCENT}20`,
+        borderTopColor: ACCENT,
+      }}
     >
       <div className="mb-5 flex items-start justify-between gap-4">
         <div>

@@ -200,10 +200,11 @@ export default function HoneyGramsToCups() {
                 1.47 cups. Because honey is a liquid, this ratio holds up more consistently than
                 dry-ingredient conversions do — there&apos;s no packing or sifting variable to account for.
               </p>
-              <div className="mt-5">
+              
+            </section>
+            <div className="mt-5">
                 <SimpleConverter ingredients={ingredients} />
               </div>
-            </section>
 
             <section>
               <h2 className="mb-3 text-2xl font-bold tracking-[-0.02em] text-gray-900">Grams to Cups (with Tablespoons and Teaspoons)</h2>

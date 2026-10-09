@@ -47,7 +47,10 @@ export default function GramsToOuncesConverter() {
   const gramsToOuncesMode = direction === "grams-to-ounces";
 
   return (
-    <div id="grams-to-ounces" className="w-full rounded-[24px] border bg-white p-5 sm:p-6" style={{ borderColor: `${ACCENT}20` }}>
+    <div id="grams-to-ounces" className="w-full rounded-[24px] m-2 border border-t-4 bg-white p-5 sm:p-6" style={{
+        borderColor: `${ACCENT}20`,
+        borderTopColor: ACCENT,
+      }}>
       <div className="mb-5 flex items-start justify-between gap-4">
         <div>
           <div className="text-[10px] font-semibold uppercase tracking-[0.24em]" style={{ color: ACCENT }}>Free Conversion Tool</div>

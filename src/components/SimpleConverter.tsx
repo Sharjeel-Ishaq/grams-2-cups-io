@@ -64,8 +64,11 @@ export default function SimpleConverter({ ingredients, initialGrams = 100 }: Pro
   return (
     <div
       id="converter"
-      className="w-full rounded-[24px] border bg-white p-5 sm:p-6"
-      style={{ borderColor: `${ACCENT}20` }}
+      className="w-full rounded-[24px] m-2 border border-t-4 bg-white p-5 sm:p-6"
+      style={{
+        borderColor: `${ACCENT}20`,
+        borderTopColor: ACCENT,
+      }}
     >
       {/* Header */}
       <div className="mb-5 flex items-start justify-between gap-4">
@@ -193,9 +196,8 @@ export default function SimpleConverter({ ingredients, initialGrams = 100 }: Pro
             }}
           >
             <i
-              className={`${
-                copied ? "ri-check-line" : "ri-file-copy-line"
-              } text-sm`}
+              className={`${copied ? "ri-check-line" : "ri-file-copy-line"
+                } text-sm`}
             />
             <span>{copied ? "Copied" : "Copy"}</span>
           </button>
