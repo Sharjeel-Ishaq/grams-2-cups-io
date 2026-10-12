@@ -56,12 +56,12 @@ const helpfulLinks = [
 const socialLinks = [
   {
     label: "Follow us on Facebook",
-    href: "/#",
+    href: "https://web.facebook.com/gram2cup",
     icon: "ri-facebook-fill",
   },
   {
     label: "Follow us on X",
-    href: "/#",
+    href: "https://x.com/grams2cups",
     icon: "ri-twitter-x-fill",
   },
   {
@@ -71,12 +71,12 @@ const socialLinks = [
   },
   {
     label: "Follow us on Pinterest",
-    href: "/#",
+    href: "https://www.pinterest.com/Grams2Cups/",
     icon: "ri-pinterest-fill",
   },
   {
     label: "Follow us on YouTube",
-    href: "/#",
+    href: "https://www.youtube.com/@grams2cups",
     icon: "ri-youtube-fill",
   },
 ];

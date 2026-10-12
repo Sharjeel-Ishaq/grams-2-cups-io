@@ -252,7 +252,7 @@ export default function FlourPage() {
       </section>
 
       {/* ── Converter tool ── */}
-      <div className="mx-auto w-full max-w-6xl px-4 m-8 sm:px-6 lg:px-8">
+      <div className="mx-auto my-8 w-full max-w-6xl px-4 sm:px-6 lg:px-8">
         <h2 className="mx-auto w-full max-w-4xl mb-1 text-2xl font-bold tracking-[-0.02em] text-gray-900">
           Convert Flour From Grams To Cups
         </h2>

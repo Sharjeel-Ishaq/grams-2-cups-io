@@ -23,6 +23,7 @@ const ingredients: Ingredient[] = [
   { name: "Salt", slug: "salt", gramsPerCup: 90, notes: "Table salt, level" },
   { name: "Baking Powder", slug: "baking-powder", gramsPerCup: 64, notes: "Level, not packed" },
   { name: "Vegetable Oil", slug: "vegetable-oil", gramsPerCup: 218, notes: "Approx., based on density" },
+  {name: "Potato Starch", slug: "potato-starch", gramsPerCup: 120, notes: "Spoon and level" },
 ];
 
 /* ─── Hero quick-conversion badges ─────────────────────────────────── */
@@ -84,7 +85,7 @@ export default function Home() {
               className="mb-4 inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs font-semibold"
               style={{ backgroundColor: `${ACCENT}12`, color: ACCENT }}
             >
-              <i className="ri-restaurant-line" /> 15 kitchen Ingredients, Ready To Convert
+              <i className="ri-restaurant-line" /> 15+ kitchen Ingredients, Ready To Convert
             </div>
             <h1 className="text-4xl font-bold tracking-[-0.03em] text-gray-900 sm:text-5xl">
               Convert Grams To Cups: See Charts Here For Each Ingredient.
@@ -118,7 +119,7 @@ export default function Home() {
       </section>
 
       {/* ── Converter tool */}
-      <div className="mx-auto w-full max-w-6xl px-4 m-8 sm:px-6 lg:px-8">
+      <div className="mx-auto my-8 w-full max-w-6xl px-4 sm:px-6 lg:px-8">
         <h2 className="mx-auto w-full max-w-4xl mb-1 text-2xl font-bold tracking-[-0.02em] text-gray-900">Convert Ingredients From Grams To Cups</h2>
         <div className="mx-auto w-full max-w-4xl">
           <SimpleConverter ingredients={ingredients} />
@@ -245,7 +246,7 @@ export default function Home() {
               </div>
               <h3 className="mb-2 mt-6 text-base font-bold text-gray-900">Convert any ingredient and quantity to cups.</h3>
               <p className="mb-2 text-sm leading-relaxed text-gray-600">
-                Need a different ingredient or quantity? See <Link href="/100-grams-to-cups" className="transition-colors duration-200 text-[#02b875] hover:underline">100 grams in cups</Link> for 15 common ingredients with our
+                Need a different ingredient or quantity? See <Link href="/100-grams-to-cups" className="transition-colors duration-200 text-[#02b875] hover:underline">100 grams in cups</Link> for 15+ common ingredients with our
                 complete converter, or convert any weight to cups by entering the quantity you need.
               </p>
               <p className="mt-2 text-xs text-gray-400">
@@ -1053,6 +1054,7 @@ export default function Home() {
                   { name: "Salt", href: "/salt" },
                   { name: "Baking powder", href: " /baking-powder" },
                   { name: "Vegetable oil", href: "/vegetable-oil" },
+                  { name: "Potato Starch", href: "/potato-starch" }
                 ].map((ing) => (
                   <Link
                     key={ing.href}

@@ -41,6 +41,7 @@ const staticPaths = [
   "/terms-of-service",
   "/vegetable-oil",
   "/water",
+  "/potato-starch",
   "/50-grams-to-cups",
   "/100-grams-to-cups",
   "/120-grams-to-cups",
