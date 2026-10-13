@@ -29,6 +29,7 @@ const routeIngredients: SearchItem[] = [
   { title: "Powdered sugar", href: "/powdered-sugar", category: "Ingredient", description: "Powdered sugar grams-to-cups conversion", terms: "confectioners icing icing sugar sifted" },
   { title: "Rice", href: "/rice", category: "Ingredient", description: "Rice grams-to-cups conversion", terms: "white uncooked grain" },
   { title: "Salt", href: "/salt", category: "Ingredient", description: "Salt grams-to-cups conversion", terms: "table kosher seasoning" },
+  { title: "Tahini", href: "/tahini", category: "Ingredient", description: "Tahini grams-to-cups conversion and measuring guide", terms: "sesame paste sesame seed butter" },
   { title: "Vegetable oil", href: "/vegetable-oil", category: "Ingredient", description: "Vegetable oil grams-to-cups conversion", terms: "cooking oil liquid" },
   { title: "Water", href: "/water", category: "Ingredient", description: "Water grams-to-cups conversion", terms: "liquid" },
 ];
@@ -77,7 +78,7 @@ const converters: SearchItem[] = [
   { title: "Grams to ounces converter", href: "/grams-to-ounces", category: "Converter", description: "Convert grams into ounces", terms: "oz weight" },
 ];
 
-const conversions: SearchItem[] = [50, 100, 120, 150, 200, 250, 300, 350, 400, 450, 500].map((grams) => ({
+const conversions: SearchItem[] = [50, 100, 120, 150, 200, 250, 300, 350, 400, 450, 500, 550].map((grams) => ({
   title: `${grams} grams to cups`,
   href: `/${grams}-grams-to-cups`,
   category: "Conversion",

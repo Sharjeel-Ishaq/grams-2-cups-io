@@ -49,6 +49,7 @@ const flours: Row[] = [
   { name: "Baking soda", cup: "288g, scaled up from ½ tsp = 3g; treat as approximate", tbsp: "18g", tsp: "6g", basis: "King Arthur" },
   { name: "Cornstarch", cup: "128g", tbsp: "8g", tsp: "2.67g", basis: "King Arthur" },
   { name: "Potato Starch", href: "/potato-starch", cup: "160g", tbsp: "10g", tsp: "3.33g", basis: "—" },
+  { name: "Tahini", href: "/tahini", cup: "240g", tbsp: "15g", tsp: "5g", basis: "—" },
 ];
 
 const sugars: Row[] = [
