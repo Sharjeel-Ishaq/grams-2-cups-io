@@ -344,7 +344,7 @@ export default function FiveHundredGramsToCups() {
                   { name: "250 grams to cups", href: "/250-grams-to-cups" },
                   { name: "Cups to grams", href: "/cups-to-grams" },
                   { name: "Grams to ounces", href: "/grams-to-ounces" },
-                  { name: "All ingredients", href: "/ingredients" },
+                  { name: "550 grams to cups", href: "/550-grams-to-cups" },
                   { name: "Accuracy guide", href: "/grams-to-cups-accuracy" },
                 ].map((link) => (
                   <Link

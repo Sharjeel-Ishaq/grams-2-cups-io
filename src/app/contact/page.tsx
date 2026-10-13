@@ -66,7 +66,7 @@ const socialLinks = [
   },
   {
     label: "Follow us on Instagram",
-    href: "/#",
+    href: "https://www.instagram.com/grams2cups.io/",
     icon: "ri-instagram-line",
   },
   {

@@ -45,7 +45,7 @@ export default function MlToCupsConverter() {
   }
 
   return (
-    <div id="ml-to-cups" className="mx-auto w-full max-w-4xl rounded-[24px] border border-t-4 bg-white p-5 sm:p-6" style={{
+    <div id="ml-to-cups" className="mx-auto w-full max-w-5xl rounded-[24px] border border-t-4 bg-white p-5 sm:p-6" style={{
         borderColor: `${ACCENT}20`,
         borderTopColor: ACCENT,
       }}>
