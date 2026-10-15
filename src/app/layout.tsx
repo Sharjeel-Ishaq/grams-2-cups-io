@@ -44,9 +44,9 @@ export const metadata: Metadata = {
     siteName: "Grams2Cups.io",
     images: [
       {
-        url: "/Grams-to-cups-logo.svg",
+        url: "/Grams2Cups.io.webp",
         width: 1200,
-        height: 630,
+        height: 720,
         alt: "Grams2Cups.io Grams to Cups Converter",
       },
     ],
@@ -59,7 +59,7 @@ export const metadata: Metadata = {
     title: "Grams2Cups.io — Grams to Cups Converter",
     description:
       "Convert grams to cups with ingredient-specific measurements for cooking and baking.",
-    images: ["/Grams-to-cups-logo.svg"],
+    images: ["/Grams2Cups.io.webp"],
   },
 };
 
