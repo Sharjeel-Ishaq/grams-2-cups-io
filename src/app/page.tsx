@@ -59,14 +59,14 @@ export const metadata: Metadata = {
     url: "/",
     siteName: "Grams2Cups",
     type: "website",
-    images: ["/og-image.jpg"],
+    images: ["/images/Preview-image.webp"],
   },
   twitter: {
     card: "summary_large_image",
     title: "Grams to Cups Converter",
     description:
       "Ingredient-specific grams to cups conversion charts for baking and cooking.",
-    images: ["/og-image.jpg"],
+    images: ["/images/Preview-image.webp"],
   },
 };
 
