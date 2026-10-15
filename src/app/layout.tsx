@@ -35,6 +35,32 @@ export const metadata: Metadata = {
       "msvalidate.01": "FFA4D89B800A1ED8882AC613172C491E",
     },
   },
+
+  openGraph: {
+    title: "Grams2Cups.io — Grams to Cups Converter",
+    description:
+      "Convert grams to cups with ingredient-specific measurements for cooking and baking.",
+    url: "https://grams2cups.io/",
+    siteName: "Grams2Cups.io",
+    images: [
+      {
+        url: "/Grams-to-cups-logo.svg",
+        width: 1200,
+        height: 630,
+        alt: "Grams2Cups.io Grams to Cups Converter",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+
+  twitter: {
+    card: "summary_large_image",
+    title: "Grams2Cups.io — Grams to Cups Converter",
+    description:
+      "Convert grams to cups with ingredient-specific measurements for cooking and baking.",
+    images: ["/Grams-to-cups-logo.svg"],
+  },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
