@@ -42,6 +42,7 @@ const staticPaths = [
 "/water",
 "/potato-starch",
 "/tahini",
+"/peanut-butter",
 "/50-grams-to-cups",
 "/100-grams-to-cups",
 "/120-grams-to-cups",
@@ -54,6 +55,9 @@ const staticPaths = [
 "/450-grams-to-cups",
 "/500-grams-to-cups",
 "/550-grams-to-cups",
+"/600-grams-to-cups",
+"/650-grams-to-cups",
+"/700-grams-to-cups",
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {

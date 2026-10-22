@@ -141,6 +141,7 @@ const categories: IngredientGroup[] = [
       { name: "Cashews", cups: "4.015 cups", tbsp: "64.234", tsp: "192.701", gpc: "137" },
       { name: "Peanut butter", cups: "2.132 cups", tbsp: "34.109", tsp: "102.326", gpc: "258" },
       { name: "Sesame seeds", cups: "3.819 cups", tbsp: "61.111", tsp: "183.333", gpc: "144" },
+      { name: "Tahini", href: "/tahini", cups: "2.29 cups", tbsp: "36.7", tsp: "110", gpc: "240" },
     ],
   },
   {
@@ -269,9 +270,13 @@ export default function FiveHundredFiftyGramsToCups() {
               <Link href="/450-grams-to-cups" className="font-semibold underline underline-offset-2" style={{ color: ACCENT }}>
                 450g
               </Link>{" "}
-              ·{" "}
+              .{" "}
               <Link href="/400-grams-to-cups" className="font-semibold underline underline-offset-2" style={{ color: ACCENT }}>
                 400g
+              </Link>
+              {" "}·{" "}
+              <Link href="/600-grams-to-cups" className="font-semibold underline underline-offset-2" style={{ color: ACCENT }}>
+                600g
               </Link>
             </p>
           </div>

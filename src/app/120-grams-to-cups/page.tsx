@@ -108,6 +108,7 @@ const categories: Category[] = [
     { name: "Cashews", cups: "0.88 cup", tbsp: "14.0", tsp: "42.0", gpc: "137" },
     { name: "Peanut butter", cups: "0.47 cup", tbsp: "7.44", tsp: "22.3", gpc: "258" },
     { name: "Sesame seeds", cups: "0.83 cup", tbsp: "13.3", tsp: "40", gpc: "144" },
+    { name: "Tahini", href: "/tahini", cups: "0.5 cup", tbsp: "8", tsp: "24", gpc: "240"}
   ] },
   { id: "baking-staples", title: "Baking Staples", rows: [
     { name: "Cocoa powder", href: "/cocoa-powder", cups: "1.40 cups", tbsp: "22.3", tsp: "67.0", gpc: "86" },

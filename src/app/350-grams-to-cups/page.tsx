@@ -108,6 +108,7 @@ const categories: IngredientGroup[] = [
     { name: "Cashews", cups: "2.555 cups", tbsp: "40.9", tsp: "122.6", gpc: "137" },
     { name: "Peanut butter", cups: "1.357 cups", tbsp: "21.7", tsp: "65.1", gpc: "258" },
     { name: "Sesame seeds", cups: "2.431 cups", tbsp: "38.9", tsp: "116.7", gpc: "144" },
+    { name: "Tahini", href: "/tahini", cups: "1.46 cups", tbsp: "23.3", tsp: "70", gpc: "240" },
   ]},
   { id: "baking-staples", title: "Baking Staples", rows: [
     { name: "Cocoa powder", href: "/cocoa-powder", cups: "4.070 cups", tbsp: "65.1", tsp: "195.3", gpc: "86" },

@@ -25,6 +25,7 @@ const routeIngredients: SearchItem[] = [
   { title: "Lemon juice", href: "/lemon-juice", category: "Ingredient", description: "Fresh and bottled lemon juice converter", terms: "citrus liquid" },
   { title: "Milk", href: "/milk", category: "Ingredient", description: "Milk grams-to-cups conversion", terms: "whole dairy liquid" },
   { title: "Oats", href: "/oats", category: "Ingredient", description: "Rolled oats grams-to-cups conversion", terms: "rolled oatmeal old fashioned" },
+  { title: "Peanut butter", href: "/peanut-butter", category: "Ingredient", description: "Peanut butter grams-to-cups conversion and measuring guide", terms: "peanut spread nut butter creamy chunky" },
   { title: "Potato starch", href: "/potato-starch", category: "Ingredient", description: "Potato starch grams-to-cups conversion and measurement guide", terms: "potato flour starch gluten-free thickener" },
   { title: "Powdered sugar", href: "/powdered-sugar", category: "Ingredient", description: "Powdered sugar grams-to-cups conversion", terms: "confectioners icing icing sugar sifted" },
   { title: "Rice", href: "/rice", category: "Ingredient", description: "Rice grams-to-cups conversion", terms: "white uncooked grain" },
@@ -78,7 +79,7 @@ const converters: SearchItem[] = [
   { title: "Grams to ounces converter", href: "/grams-to-ounces", category: "Converter", description: "Convert grams into ounces", terms: "oz weight" },
 ];
 
-const conversions: SearchItem[] = [50, 100, 120, 150, 200, 250, 300, 350, 400, 450, 500, 550].map((grams) => ({
+const conversions: SearchItem[] = [50, 100, 120, 150, 200, 250, 300, 350, 400, 450, 500, 550, 600, 650, 700].map((grams) => ({
   title: `${grams} grams to cups`,
   href: `/${grams}-grams-to-cups`,
   category: "Conversion",

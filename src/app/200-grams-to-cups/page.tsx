@@ -3,7 +3,9 @@ import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import SimpleConverter from "@/components/SimpleConverter";
 
+
 const ACCENT = "#02b875";
+
 
 export const metadata: Metadata = {
   title: "200 Grams to Cups — Full Ingredient Conversion Chart",
@@ -26,7 +28,9 @@ export const metadata: Metadata = {
   },
 };
 
-type Row = { name: string; href?: string; cups: string; tbsp: string };
+
+type Row = { name: string; href?: string; cups: string; tbsp: string; tsp?: string; gpc?: string };
+type IngredientGroup = { id: string; title: string; rows: Row[] };
 type Ingredient = {
   name: string;
   slug: string;
@@ -34,6 +38,7 @@ type Ingredient = {
   cupsFor200g: number;
   notes: string;
 };
+
 
 /* ─── Main 200g table — the site's 16 dedicated ingredients ─────────── */
 const mainRows: Row[] = [
@@ -55,37 +60,68 @@ const mainRows: Row[] = [
   { name: "Baking powder", href: "/baking-powder", cups: "~⅞ cup", tbsp: "14.5 tbsp" },
 ];
 
-/* ─── Additional table 1 — more flours, fats & grains at 200g ───────── */
-const moreFlourFatRows: Row[] = [
-  { name: "Whole wheat flour", cups: "~1⅔ cups", tbsp: "26.7 tbsp" },
-  { name: "Almond flour", cups: "~2.08 cups", tbsp: "33.3 tbsp" },
-  { name: "Cake flour", cups: "~1¾ cups", tbsp: "28.1 tbsp" },
-  { name: "Olive oil", cups: "~0.93 cup", tbsp: "14.8 tbsp" },
-  { name: "Shortening", cups: "~1 cup (scant)", tbsp: "15.6 tbsp" },
-  { name: "Quinoa (uncooked)", cups: "~1⅙ cups", tbsp: "18.8 tbsp" },
-  { name: "Dry pasta", cups: "2 cups", tbsp: "32 tbsp" },
-  { name: "Cornstarch", cups: "~1.56 cups", tbsp: "25 tbsp" },
+
+/* ─── Category tables — detailed, internally linked, no main-table duplicates ─── */
+const categories: IngredientGroup[] = [
+  { id: "flours", title: "More Flours", rows: [
+    { name: "Bread flour", cups: "1.57 cups", tbsp: "25.2", tsp: "75.6", gpc: "127" },
+    { name: "Cake flour", cups: "1.75 cups", tbsp: "28.1", tsp: "84.2", gpc: "114" },
+    { name: "Whole wheat flour", cups: "1.67 cups", tbsp: "26.7", tsp: "80.0", gpc: "120" },
+    { name: "Almond flour", cups: "2.08 cups", tbsp: "33.3", tsp: "100.0", gpc: "96" },
+    { name: "Coconut flour", cups: "1.56 cups", tbsp: "25.0", tsp: "75.0", gpc: "128" },
+  ]},
+  { id: "sweeteners", title: "Syrups and Liquid Sweeteners", rows: [
+    { name: "Maple syrup", cups: "0.62 cup", tbsp: "9.9", tsp: "29.8", gpc: "322" },
+    { name: "Molasses", cups: "0.61 cup", tbsp: "9.8", tsp: "29.3", gpc: "328" },
+  ]},
+  { id: "fats", title: "Oils, Fats and Tahini", rows: [
+    { name: "Shortening", cups: "0.98 cup", tbsp: "15.6", tsp: "46.8", gpc: "205" },
+    { name: "Olive oil", cups: "0.93 cup", tbsp: "14.8", tsp: "44.4", gpc: "216" },
+    { name: "Coconut oil", cups: "0.92 cup", tbsp: "14.7", tsp: "44.0", gpc: "218" },
+    { name: "Tahini", href: "/tahini", cups: "0.83 cup", tbsp: "13.3", tsp: "40.0", gpc: "240" },
+  ]},
+  { id: "dairy", title: "Dairy, Creamy Ingredients and Lemon Juice", rows: [
+    { name: "Heavy cream", cups: "0.84 cup", tbsp: "13.4", tsp: "40.3", gpc: "238" },
+    { name: "Yogurt", cups: "0.82 cup", tbsp: "13.1", tsp: "39.2", gpc: "245" },
+    { name: "Greek yogurt", cups: "0.82 cup", tbsp: "13.1", tsp: "39.2", gpc: "245" },
+    { name: "Sour cream", cups: "0.83 cup", tbsp: "13.3", tsp: "40.0", gpc: "240" },
+    { name: "Cream cheese", cups: "0.86 cup", tbsp: "13.8", tsp: "41.4", gpc: "232" },
+    { name: "Condensed milk", cups: "0.65 cup", tbsp: "10.5", tsp: "31.4", gpc: "306" },
+    { name: "Lemon juice", href: "/lemon-juice", cups: "0.82 cup", tbsp: "13.1", tsp: "39.2", gpc: "245" },
+  ]},
+  { id: "grains", title: "Grains, Pasta and Seeds", rows: [
+    { name: "Quinoa (uncooked)", cups: "1.18 cups", tbsp: "18.8", tsp: "56.5", gpc: "170" },
+    { name: "Couscous", cups: "1.16 cups", tbsp: "18.5", tsp: "55.5", gpc: "173" },
+    { name: "Dry pasta", cups: "2.00 cups", tbsp: "32.0", tsp: "96.0", gpc: "100" },
+  ]},
+  { id: "nuts", title: "Nuts and Nut Butters", rows: [
+    { name: "Walnuts, chopped", cups: "1.67 cups", tbsp: "26.7", tsp: "80.0", gpc: "120" },
+    { name: "Cashews", cups: "1.46 cups", tbsp: "23.4", tsp: "70.1", gpc: "137" },
+    { name: "Peanut butter", cups: "0.78 cup", tbsp: "12.4", tsp: "37.2", gpc: "258" },
+    { name: "Sesame seeds", cups: "1.39 cups", tbsp: "22.2", tsp: "66.7", gpc: "144" },
+  ]},
+  { id: "baking-staples", title: "Baking Staples", rows: [
+    { name: "Cornstarch", cups: "1.67 cups", tbsp: "26.7", tsp: "80.0", gpc: "120" },
+    { name: "Potato starch", href: "/potato-starch", cups: "1.33 cups", tbsp: "21.3", tsp: "64.0", gpc: "150" },
+    { name: "Breadcrumbs", cups: "1.85 cups", tbsp: "29.6", tsp: "88.9", gpc: "108" },
+  ]},
+  { id: "cheese", title: "Cheese", rows: [
+    { name: "Parmesan, grated", cups: "2.00 cups", tbsp: "32.0", tsp: "96.0", gpc: "100" },
+    { name: "Cheddar, shredded", cups: "1.77 cups", tbsp: "28.3", tsp: "85.0", gpc: "113" },
+    { name: "Mozzarella, shredded", cups: "1.79 cups", tbsp: "28.6", tsp: "85.7", gpc: "112" },
+    { name: "Feta, crumbled", cups: "1.33 cups", tbsp: "21.3", tsp: "64.0", gpc: "150" },
+  ]},
+  { id: "spices", title: "Spices and Condiments", rows: [
+    { name: "Ground cinnamon", cups: "1.60 cups", tbsp: "25.6", tsp: "76.8", gpc: "125" },
+    { name: "Ground cumin", cups: "1.92 cups", tbsp: "30.8", tsp: "115.2", gpc: "104" },
+    { name: "Paprika", cups: "1.83 cups", tbsp: "29.4", tsp: "110.0", gpc: "109" },
+    { name: "Garlic powder", cups: "1.33 cups", tbsp: "21.1", tsp: "80.0", gpc: "150" },
+    { name: "Mayonnaise", cups: "0.87 cup", tbsp: "13.8", tsp: "52.5", gpc: "229" },
+    { name: "Ketchup", cups: "0.75 cup", tbsp: "11.8", tsp: "45.0", gpc: "267" },
+    { name: "Soy sauce", cups: "0.80 cup", tbsp: "12.5", tsp: "48.0", gpc: "250" },
+  ]},
 ];
 
-/* ─── Additional table 2 — dairy, nuts, cheese, spices & condiments ─── */
-const moreDairyNutsRows: Row[] = [
-  { name: "Heavy cream", cups: "~⅚ cup", tbsp: "13.4 tbsp" },
-  { name: "Yogurt", cups: "~0.82 cup", tbsp: "13.1 tbsp" },
-  { name: "Walnuts, chopped", cups: "~1⅔ cups", tbsp: "26.7 tbsp" },
-  { name: "Sesame seeds", cups: "~1⅜ cups", tbsp: "22.2 tbsp" },
-  { name: "Peanut butter", cups: "~¾ cup", tbsp: "12.4 tbsp" },
-  { name: "Parmesan, grated", cups: "2 cups", tbsp: "32 tbsp" },
-  { name: "Cheddar, shredded", cups: "~1¾ cups", tbsp: "28.3 tbsp" },
-  { name: "Cream cheese", cups: "~⅞ cup", tbsp: "13.8 tbsp" },
-  { name: "Feta, crumbled", cups: "1⅓ cups", tbsp: "21.3 tbsp" },
-  { name: "Ground cinnamon", cups: "~1.6 cups", tbsp: "25.6 tbsp" },
-  { name: "Ground cumin", cups: "~1.92 cups", tbsp: "30.8 tbsp" },
-  { name: "Paprika", cups: "~1⅚ cups", tbsp: "29.4 tbsp" },
-  { name: "Garlic powder", cups: "~1⅓ cups", tbsp: "21.1 tbsp" },
-  { name: "Mayonnaise", cups: "~⅞ cup", tbsp: "13.8 tbsp" },
-  { name: "Ketchup", cups: "~¾ cup", tbsp: "11.8 tbsp" },
-  { name: "Soy sauce", cups: "~⅘ cup", tbsp: "12.5 tbsp" },
-];
 
 const ingredients: Ingredient[] = [
   { name: "All-Purpose Flour", slug: "flour", gramsPerCup: 120, cupsFor200g: 1.67, notes: "Spoon and level" },
@@ -115,7 +151,8 @@ const ingredients: Ingredient[] = [
   { name: "Greek Yogurt", slug: "greek-yogurt", gramsPerCup: 245, cupsFor200g: 0.82, notes: "Plain, full fat" }
 ];
 
-function WeightTable({ rows }: { rows: Row[] }) {
+
+function MainTable({ rows }: { rows: Row[] }) {
   return (
     <div className="overflow-x-auto rounded-[20px] border" style={{ borderColor: `${ACCENT}20` }}>
       <table className="w-full min-w-[420px] text-sm">
@@ -146,10 +183,52 @@ function WeightTable({ rows }: { rows: Row[] }) {
   );
 }
 
+
+function CategoryTable({ rows }: { rows: Row[] }) {
+  return (
+    <div className="overflow-x-auto rounded-[20px] border" style={{ borderColor: `${ACCENT}20` }}>
+      <table className="w-full min-w-[560px] text-sm">
+        <thead style={{ backgroundColor: ACCENT }}>
+          <tr>
+            {["Ingredient", "200g in Cups", "Tbsp", "Tsp", "g per Cup"].map((title) => (
+              <th key={title} className="whitespace-nowrap px-4 py-3 text-left font-semibold text-white">
+                {title}
+              </th>
+            ))}
+          </tr>
+        </thead>
+        <tbody>
+          {rows.map((row, index) => (
+            <tr key={row.name} className={index % 2 === 0 ? "bg-white" : "bg-gray-50/60"}>
+              <td className="px-4 py-2.5 font-medium text-gray-800">
+                {row.href ? (
+                  <Link href={row.href} className="hover:underline" style={{ color: ACCENT }}>
+                    {row.name}
+                  </Link>
+                ) : (
+                  row.name
+                )}
+              </td>
+              <td className="px-4 py-2.5 font-semibold" style={{ color: ACCENT }}>
+                {row.cups}
+              </td>
+              <td className="px-4 py-2.5 text-gray-600">{row.tbsp}</td>
+              <td className="px-4 py-2.5 text-gray-600">{row.tsp}</td>
+              <td className="px-4 py-2.5 text-gray-600">{row.gpc}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  );
+}
+
+
 export default function TwoHundredGramsToCups() {
   return (
     <div className="min-h-screen bg-[#f7f7f7]">
       <Navbar />
+
 
       {/* ── Hero ── */}
       <section className="relative overflow-hidden border-b border-[#e4efe9]">
@@ -178,12 +257,26 @@ export default function TwoHundredGramsToCups() {
               .
             </p>
           </div>
+          <div className="mx-auto mt-8 flex max-w-3xl flex-wrap justify-center gap-2">
+            {categories.map((category) => (
+              <a
+                key={category.id}
+                href={`#${category.id}`}
+                className="rounded-full border bg-white/80 px-3 py-1.5 text-xs font-semibold backdrop-blur-sm transition-colors hover:border-current"
+                style={{ borderColor: `${ACCENT}30`, color: ACCENT }}
+              >
+                {category.title}
+              </a>
+            ))}
+          </div>
         </div>
       </section>
+
 
       <div className="mx-auto max-w-5xl px-4 py-10 sm:px-6 lg:px-8">
         <main className="mx-auto w-full max-w-5xl">
           <div className="space-y-10">
+
 
             {/* Quick Answer */}
             <section className="rounded-[24px] p-5 sm:p-6" style={{ backgroundColor: `${ACCENT}0a`, border: `1px solid ${ACCENT}25` }}>
@@ -200,14 +293,16 @@ export default function TwoHundredGramsToCups() {
               </p>
             </section>
 
+
             <div className="mt-5">
               <SimpleConverter ingredients={ingredients} initialGrams={200} />
             </div>
 
+
             {/* Main table */}
             <section>
               <h2 className="mb-4 text-2xl font-bold tracking-[-0.02em] text-gray-900">200 Grams to Cups, by Ingredient</h2>
-              <WeightTable rows={mainRows} />
+              <MainTable rows={mainRows} />
               <p className="mt-2 text-sm leading-relaxed text-gray-600">
                 Figures are based on standard reference weights per cup for each ingredient (for example,
                 flour at 120g/cup and sugar at 200g/cup), using the US customary cup and the
@@ -216,7 +311,8 @@ export default function TwoHundredGramsToCups() {
               </p>
             </section>
 
-            {/* Additional tables */}
+
+            {/* Additional category tables */}
             <section>
               <h2 className="mb-1 text-2xl font-bold tracking-[-0.02em] text-gray-900">More Ingredients at 200 Grams</h2>
               <p className="mb-4 text-sm leading-relaxed text-gray-600">
@@ -224,11 +320,14 @@ export default function TwoHundredGramsToCups() {
                 of baking and cooking ingredients.
               </p>
 
-              <h3 className="mb-3 mt-6 text-xl font-bold tracking-[-0.02em] text-gray-900">More Flours, Fats &amp; Grains</h3>
-              <WeightTable rows={moreFlourFatRows} />
 
-              <h3 className="mb-3 mt-8 text-xl font-bold tracking-[-0.02em] text-gray-900">Dairy, Nuts, Cheese, Spices &amp; Condiments</h3>
-              <WeightTable rows={moreDairyNutsRows} />
+              {categories.map((category) => (
+                <div key={category.id} id={category.id} className="mb-8 scroll-mt-24">
+                  <h3 className="mb-3 text-xl font-bold tracking-[-0.02em] text-gray-900">{category.title}</h3>
+                  <CategoryTable rows={category.rows} />
+                </div>
+              ))}
+
 
               <p className="mt-2 text-xs text-gray-400">
                 These additional figures use the same reference densities as{" "}
@@ -238,6 +337,7 @@ export default function TwoHundredGramsToCups() {
                 and should be treated as practical estimates rather than exact constants.
               </p>
             </section>
+
 
             {/* Why looks so different */}
             <section className="rounded-[24px] border bg-white p-5 sm:p-6" style={{ borderColor: `${ACCENT}20` }}>
@@ -257,6 +357,7 @@ export default function TwoHundredGramsToCups() {
                 completely different amounts of space.
               </p>
             </section>
+
 
             {/* Closer look */}
             <section>
@@ -300,6 +401,7 @@ export default function TwoHundredGramsToCups() {
               </ul>
             </section>
 
+
             {/* How to Measure */}
             <section className="rounded-[24px] p-5 sm:p-6" style={{ backgroundColor: `${ACCENT}0a`, border: `1px solid ${ACCENT}25` }}>
               <h2 className="mb-3 text-2xl font-bold tracking-[-0.02em] text-gray-900">How to Measure 200 Grams Accurately</h2>
@@ -324,6 +426,7 @@ export default function TwoHundredGramsToCups() {
               </ul>
             </section>
 
+
             {/* Quick Reference */}
             <section className="rounded-[24px] border bg-white p-5 sm:p-6" style={{ borderColor: `${ACCENT}20` }}>
               <h2 className="mb-3 text-2xl font-bold tracking-[-0.02em] text-gray-900">Quick Reference</h2>
@@ -343,6 +446,7 @@ export default function TwoHundredGramsToCups() {
               </ul>
             </section>
 
+
             {/* Bottom Line */}
             <section className="rounded-[24px] border bg-white p-5 sm:p-6" style={{ borderColor: `${ACCENT}20` }}>
               <h2 className="mb-3 text-2xl font-bold tracking-[-0.02em] text-gray-900">The Bottom Line</h2>
@@ -354,6 +458,7 @@ export default function TwoHundredGramsToCups() {
                 no matter how it settles in the cup.
               </p>
             </section>
+
 
             <section
               className="rounded-2xl border bg-gray-50 p-4 text-xs leading-relaxed text-gray-500"
@@ -382,6 +487,7 @@ export default function TwoHundredGramsToCups() {
                 ))}
               </div>
             </section>
+
 
           </div>
         </main>
