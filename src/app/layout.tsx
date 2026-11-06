@@ -77,6 +77,13 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <Footer />
         <KitchenAssistant />
 
+        <Script
+          id="google-adsense"
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8207007067047665"
+          strategy="afterInteractive"
+          crossOrigin="anonymous"
+        />
+
         {/* Google Analytics */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-FVLL9MM0RL"
